@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -11,8 +10,7 @@ import {InputTextModule} from 'primeng/inputtext';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    InputTextModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
