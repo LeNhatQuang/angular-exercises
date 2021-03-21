@@ -9,7 +9,10 @@ import { FormControl } from '@angular/forms';
 export class AppComponent {
   title = 'angular-exercises';
   //template-driven forms
-  favoriteColor = '';
+  onSubmit(value: any) {
+    console.log(value);
+  }
+
 
   //reactive forms
   favoriteColorControl = new FormControl('');

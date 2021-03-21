@@ -1,5 +1,42 @@
-Favorite Color template-driven: <input type="text" [(ngModel)]="favoriteColor">
-{{favoriteColor}}
+<h2> template-driven Form</h2>
+
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+    <div>
+        <label>Name</label>
+        <input type="text" minlength="6" maxlength="10" pInputText required name="name" ngModel #name="ngModel" />
+        <div *ngIf="name.invalid && (name.dirty || name.touched)">
+            <div *ngIf="name.errors.required">
+                Name is required.
+            </div>
+            <div [hidden]="!name.errors.minlength">
+                Name must be at least 6 characters.
+            </div>
+            <div [hidden]="!name.errors.maxlength">
+                Name cannot has more than 10 characters
+            </div>
+        </div>
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="text" pInputText name="email" ngModel />
+    </div>
+    <div ngModelGroup="address">
+        <div>
+            <label>Street</label>
+            <input type="text" pInputText name="st reet" ngModel />
+        </div>
+        <div>
+            <label>City</label>
+            <input type="text" pInputText name="city" ngModel />
+        </div>
+        <div>
+            <label>Postal Code</label>
+            <input type="text" pInputText name="postalCode" ngModel />
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>
 <br>
 <br>
 Favorite Color reactive: <input type="text" [formControl]="favoriteColorControl">
